@@ -1,4 +1,5 @@
 import discord
+import os 
 from discord.ext import commands
 
 #api tokens and bot token
@@ -31,4 +32,4 @@ async def on_member_remove(member):
 
 
 
-client.run(bottoken)
+client.run(os.getenv("bottoken"))
