@@ -1,3 +1,4 @@
+
 import discord
 import os 
 import requests
@@ -42,5 +43,24 @@ async def on_member_remove(member):
     await channel.send("f off")
 
 
+@client.command(pass_context = True)
+async def join(ctx):
+    if(ctx.author.voice):
+        channel=ctx.message.author.voice.channel
+        await channel.connect()
+    else:
+        await ctx.send("you are not in vc, join a vc first")
 
-client.run(os.getenv("bottoken"))
+@client.command(pass_context = True)
+async def leave(ctx):
+    if(ctx.voice_client):
+        await ctx.guild.voice_client.disconnect()
+        await ctx.send("left the vc")
+    else:
+        await ctx.send("i am not in vc")
+
+
+
+
+
+client.run(os.getenv("btoken"))
