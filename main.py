@@ -6,12 +6,20 @@ import json
 import random
 from discord.ext import commands
 
+from help_cog import help_cog
+from music_cog import music_cog
 
 intents = discord.Intents.all()
 intents.members= True
 
 client = commands.Bot(command_prefix = '$',intents=intents)
 #client = commands.Bot(command_prefix="$")
+client.remove_command("help")
+client.add_cog(help_cog(client))
+client.add_cog(music_cog(client))
+
+
+
 
 @client.event
 async def on_ready():
