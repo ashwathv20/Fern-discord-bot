@@ -15,8 +15,6 @@ intents.members= True
 client = commands.Bot(command_prefix = '$',intents=intents)
 #client = commands.Bot(command_prefix="$")
 client.remove_command("help")
-client.add_cog(help_cog(client))
-client.add_cog(music_cog(client))
 
 
 
@@ -25,7 +23,8 @@ client.add_cog(music_cog(client))
 async def on_ready():
     print("the bot ready")
     print("-------------")
-
+    await test()
+    
 @client.command()
 async def hello(ctx):
     await ctx.send("Hey, I am fern")
@@ -68,7 +67,9 @@ async def leave(ctx):
         await ctx.send("i am not in vc")
 
 
-
+async def test():
+    await client.add_cog(help_cog(client))
+    await client.add_cog(music_cog(client))
 
 
 client.run(os.getenv("btoken"))

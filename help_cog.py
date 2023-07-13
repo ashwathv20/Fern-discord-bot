@@ -12,7 +12,7 @@ $p <song name -keywords> - finds the song on youtube and plays it in your curren
 $q - displays the current music queue
 $skip/$nah - skips the current song being played
 $clear/$clear - Stops the music and clears the queue
-$leave/$foff - Disconnected the bot from the voice channel
+$dc/$foff - Disconnected the bot from the voice channel
 $pause - pauses the current song being played or resumes if already paused
 $resume - resumes playing the current song
 ```
